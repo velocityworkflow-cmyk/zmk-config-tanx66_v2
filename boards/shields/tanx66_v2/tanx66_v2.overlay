@@ -1,5 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <tanx66-pinctrl.dtsi>
+#include <tanx66_v2-pinctrl.dtsi>
 
 / {
     chosen {
@@ -52,6 +52,12 @@
 
 &spi1 {
     status = "okay";
+
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
+
     cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
     shifter: 595@0 {
         compatible = "zmk,gpio-595";
@@ -66,6 +72,11 @@
 
 &i2c0 {
     status = "okay";
+
+    compatible = "nordic,nrf-twi";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
@@ -84,3 +95,20 @@
     };
 
 };
+
+&adc {
+    status = "okay";
+};
+
+&gpiote {
+    status = "okay";
+};
+
+&gpio0 {
+    status = "okay";
+};
+
+&gpio1 {
+    status = "okay";
+};
+ 
