@@ -51,6 +51,11 @@
 
 &spi1 {
     status = "okay";
+
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
     
     cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
 
@@ -67,6 +72,11 @@
 
 &i2c0 {
     status = "okay";
+
+    compatible = "nordic,nrf-twi";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
@@ -154,24 +164,24 @@
     status = "okay";
 };
 
-&i2c0 {
-    compatible = "nordic,nrf-twi";
-    pinctrl-0 = <&i2c0_default>;
-    pinctrl-1 = <&i2c0_sleep>;
-    pinctrl-names = "default", "sleep";
-};
+//&i2c0 {
+//   compatible = "nordic,nrf-twi";
+//   pinctrl-0 = <&i2c0_default>;
+//   pinctrl-1 = <&i2c0_sleep>;
+//    pinctrl-names = "default", "sleep";
+//};
 
-&spi1 {
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
-    pinctrl-names = "default", "sleep";
-};
+//&spi1 {
+//    compatible = "nordic,nrf-spim";
+//    pinctrl-0 = <&spi1_default>;
+//   pinctrl-1 = <&spi1_sleep>;
+//   pinctrl-names = "default", "sleep";
+//};
 
-&uart0 {
-    compatible = "nordic,nrf-uarte";
-    current-speed = <115200>;
-    pinctrl-0 = <&uart0_default>;
-    pinctrl-1 = <&uart0_sleep>;
-    pinctrl-names = "default", "sleep";
-};
+//&uart0 {
+//   compatible = "nordic,nrf-uarte";
+//    current-speed = <115200>;
+//    pinctrl-0 = <&uart0_default>;
+//    pinctrl-1 = <&uart0_sleep>;
+//    pinctrl-names = "default", "sleep";
+//};
